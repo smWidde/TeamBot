@@ -27,9 +27,12 @@ namespace TeamProject_
                 {
                     using(SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        while(reader.Read())
+                        if (reader.HasRows)
                         {
-                            result.Add(new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) });
+                            while (reader.Read())
+                            {
+                                result.Add(new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) });
+                            }
                         }
                     }
                 }
@@ -47,10 +50,14 @@ namespace TeamProject_
                     cmd.Parameters.Add(new SQLiteParameter("@id", ID_Question));
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if(reader.HasRows)
                         {
-                            result.Add(new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) });
+                            while (reader.Read())
+                            {
+                                result.Add(new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) });
+                            }
                         }
+                       
                     }
                 }
             }
