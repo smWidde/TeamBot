@@ -39,8 +39,9 @@ namespace TeamProject_
             {
                 connection.Open();
 
-                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS ChatTable" +
-                    "([id] INTEGER PRIMARY KEY AUTOINCREMENT,", connection))
+                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS QUESTION" +
+                   "([ID] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                   "[QUESTION] VARCHAR(21) NOT NULL," , connection))
                 {
                     try
                     {
@@ -52,13 +53,36 @@ namespace TeamProject_
                     }
                 }
 
-                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS UserTable" +
-                    "([id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "[Name] VARCHAR(21) NOT NULL," +
-                    "[LastName] VARCHAR(21) NOT NULL," +
-                    "[NumberPhone] integer NOT NULL," +
-                    "[ID_ChatTable] INTEGER," +
-                    "FOREIGN KEY(ID_ChatTable) REFERENCES ChatTable(id));", connection))
+                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS ANSWER" +
+                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT,[ANSWER] varchar(50) not null,[QUESTION_ID] integer," +
+                    "FOREIGN KEY([QUESTION_ID]) REFERENCES QUESTION(ID));", connection))
+                {
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS [USER]" +
+                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT, USER_ID_TG integer);", connection))
+                {
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+                using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS [MESSAGE]" +
+                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT, USER_ID integer,MSG varchar(50), IS_BOT bit)" +
+                    "FOREIGN KEY([USER_ID]) REFERENCES [USER](ID));", connection))
                 {
                     try
                     {
