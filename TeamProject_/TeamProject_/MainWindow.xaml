@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Перейти к пользователям" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="337" Height="195" Click="Button_Click"/>
-        <Button Content="Перейти базе денных вопросов" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="352,84,0,0" VerticalAlignment="Top" Width="430" Height="195"/>
+        <Button Content="Отправить всем" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="347,227,0,0" VerticalAlignment="Top" Width="430" Height="52" Click="SendAll"/>
+        <TextBox Name ="msg" Margin="347,84,15,192"/>
     </Grid>
 </Window>

@@ -106,5 +106,10 @@ namespace TeamProject_
             taskWindow.Show();
             this.Close();
         }
+
+        private void SendAll(object sender, RoutedEventArgs e)
+        {
+            client.SendToEveryone(msg.Text);
+        }
     }
 }
