@@ -11,7 +11,11 @@
             <ColumnDefinition Width="113*"/>
             <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="msgchat" HorizontalAlignment="Left" Height="290" Margin="23,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="436"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="290" Margin="23,54,0,0" VerticalAlignment="Top" Width="436">
+            <StackPanel Name="msgchat">
+                
+            </StackPanel>
+        </ScrollViewer>
         <TextBox Name="msg" HorizontalAlignment="Left" Height="50" Margin="23,349,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="373"/>
         <Button Name="btnsend" Content="Button" HorizontalAlignment="Left" Margin="401,349,0,0" VerticalAlignment="Top" Width="58" Height="50" Click="btnsend_Click"/>
         <Label Name="labletxt" Content="" HorizontalAlignment="Left" Margin="125,28,0,0" VerticalAlignment="Top" Width="227"/>

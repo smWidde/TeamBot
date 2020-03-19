@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TeamProject_.Model;
 namespace TeamProject_.ModelView
 {
-    class UserCollection : List<User>, INotifyCollectionChanged
+    public class UserCollection : List<User>, INotifyCollectionChanged
     {
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public UserCollection()

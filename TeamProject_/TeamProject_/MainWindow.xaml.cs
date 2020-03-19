@@ -102,7 +102,7 @@ namespace TeamProject_
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UsersWindow taskWindow = new UsersWindow();
+            UsersWindow taskWindow = new UsersWindow(client);
             taskWindow.Show();
             this.Close();
         }

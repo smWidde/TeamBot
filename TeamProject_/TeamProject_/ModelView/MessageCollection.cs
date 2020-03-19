@@ -8,7 +8,7 @@ using TeamProject_.Model;
 
 namespace TeamProject_.ModelView
 {
-    class MessageCollection : List<Message>, INotifyCollectionChanged
+    public class MessageCollection : List<Message>, INotifyCollectionChanged
     {
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public MessageCollection()

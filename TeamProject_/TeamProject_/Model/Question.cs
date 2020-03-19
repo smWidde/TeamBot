@@ -9,7 +9,7 @@ using Telegram.Bot;
 
 namespace TeamProject_.Model
 {
-    class Question
+    public class Question
     {
         private static string path = "TeamTestBotDB.sqlite";
         public int ID { get; private set; }

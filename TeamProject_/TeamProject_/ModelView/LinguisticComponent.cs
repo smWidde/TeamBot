@@ -7,7 +7,7 @@ using TeamProject_.Model;
 
 namespace TeamProject_.ModelView
 {
-    struct LinguisticComponent
+    public struct LinguisticComponent
     {
        public Question question;
         public List<Answer> answers;

@@ -10,7 +10,7 @@ using Telegram.Bot.Args;
 
 namespace TeamProject_.ModelView
 {
-    class TeleBot
+    public class TeleBot
     {
         TelegramBotClient client { get; set; }
         public UserCollection users;
@@ -81,6 +81,10 @@ namespace TeamProject_.ModelView
                 tmp.Add(msg);
             }
             return tmp;
+        }
+        public void SendToOne(long User_ID_TG, string Message)
+        {
+            client.SendTextMessageAsync(User_ID_TG, Message);
         }
         private LinguisticComponent GetOneLinguisticComponent(string question)
         {

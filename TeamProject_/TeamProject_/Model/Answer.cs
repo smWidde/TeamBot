@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeamProject_.Model
 {
-     class Answer
+    public class Answer
      {
         static readonly string path = "TeamTestBotDB.sqlite";
         

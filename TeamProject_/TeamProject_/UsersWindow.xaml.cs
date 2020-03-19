@@ -23,17 +23,16 @@ namespace TeamProject_
     {
         UserCollection coll = new UserCollection();
         List<User> users = new List<User>();
-        public UsersWindow()
+        TeleBot client;
+        public UsersWindow(TeleBot client)
         {
-           
+            this.client = client;
             InitializeComponent();
             foreach (var item in coll)
             {
                 lsbox.Items.Add(item.user_id);
               
             }
-           
-            //Dispatcher.BeginInvoke(new Action(delegate { TheList.Add(new BoolStringClass { IsSelected = false, TheText = un.ToString() }); }));
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +43,7 @@ namespace TeamProject_
                 if (lsbox.SelectedItem.ToString() == item.user_id.ToString())
                 {
                     string name = item.user_id.ToString();
-                    UserWindow taskWindow = new UserWindow(name);
+                    UserWindow taskWindow = new UserWindow(name, client);
                     taskWindow.Show();
                     this.Close();
                 }

@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using TeamProject_.Model;
 namespace TeamProject_.ModelView
 {
-    class QuestionCollection:List<Question>,INotifyCollectionChanged
+    public class QuestionCollection:List<Question>,INotifyCollectionChanged
     {
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public QuestionCollection()

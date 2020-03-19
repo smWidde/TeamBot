@@ -21,29 +21,19 @@ namespace TeamProject_
     /// </summary>
     public partial class UserWindow : Window
     {
-        static TelegramBotClient client;
+        TeleBot bot;
         AnswerCollection answers = new AnswerCollection();
            QuestionCollection qc = new QuestionCollection();    
-        public UserWindow(string name)
+        public UserWindow(string name, TeleBot bot)
         {
-           
+            this.bot = bot;
             InitializeComponent();
             labletxt.Content = name;
-            foreach (var item in qc)
-            {
-                msgchat.Text +="\n"+ item.QUESTION;
-            }
-            foreach (var item in answers)
-            {
-                msgchat.Text += "\n" + item.ANSWER;
-            }
-
         }
 
         private void btnsend_Click(object sender, RoutedEventArgs e)
         {
-            //client.SendTextMessageAsync(new Telegram.Bot.Types.ChatId(name), msgchat.Text);
-            msgchat.Text = String.Empty;
+            bot.SendToOne(Int64.Parse(labletxt.Content.ToString()), msg.Text);
         }
     }
 }

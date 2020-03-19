@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 namespace TeamProject_.Model
 {
-    class User
+    public class User
     {
         static readonly string path = "TeamTestBotDB.sqlite";
         public int ID {  get; set; }
