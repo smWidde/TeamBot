@@ -41,9 +41,9 @@ namespace TeamProject_.Model
             return result;
         }
 
-        public static List<Answer> GetAnswersByID(int ID_Question)
+        public static Answer GetAnswersByID(int ID_Question)
         {
-            List<Answer> result = new List<Answer>();
+            Answer result = null;
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
                 connection.Open();
@@ -56,7 +56,7 @@ namespace TeamProject_.Model
                         {
                             while (reader.Read())
                             {
-                                result.Add(new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) });
+                                result=new Answer() { ID = reader.GetInt32(0), ANSWER = reader.GetString(1), QUESTION_ID = reader.GetInt32(2) };
                             }
                         }
                        

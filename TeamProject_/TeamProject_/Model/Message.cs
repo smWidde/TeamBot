@@ -38,9 +38,9 @@ namespace TeamProject_.Model
             }
             return result;
         }
-        public static List<Message> GetMessagesByID(int ID)
+        public static Message GetMessagesByID(int ID)
         {
-            List<Message> result = new List<Message>();
+            Message result = null;
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
                 connection.Open();
@@ -53,7 +53,7 @@ namespace TeamProject_.Model
                         {
                             while (reader.Read())
                             {
-                                result.Add(new Message() { ID = reader.GetInt32(0), USER_ID = reader.GetInt32(1), MSG = reader.GetString(2), IS_BOT = reader.GetBoolean(3) });
+                                result = new Message() { ID = reader.GetInt32(0), USER_ID = reader.GetInt32(1), MSG = reader.GetString(2), IS_BOT = reader.GetBoolean(3) };
                             }
                         }
                        
