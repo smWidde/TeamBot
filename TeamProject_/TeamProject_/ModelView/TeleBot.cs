@@ -86,7 +86,8 @@ namespace TeamProject_.ModelView
         {
             LinguisticComponent tmp = new LinguisticComponent();
             tmp.question = questions.Where(qs=>qs.QUESTION==question).FirstOrDefault();
-            foreach (var ans in answers.Where(ans=>ans.QUESTION_ID==tmp.question.ID))
+            tmp.answers = new List<Answer>();
+            foreach (Answer ans in answers.Where(ans=>ans.QUESTION_ID==tmp.question.ID))
             {
                 tmp.answers.Add(ans);
             }
@@ -137,6 +138,9 @@ namespace TeamProject_.ModelView
                 else
                 {
                     Upgrade(e.Message.Text, e.Message.ReplyToMessage.Text);
+                    client.SendTextMessageAsync(e.Message.Chat.Id, "Ответ добавлен!");
+                    user_id = User.ReadByUserId(e.Message.Chat.Id).ID;
+                    messages.AddNewMessage(user_id, "Ответ добавлен!", true);
                 }
             }
         }
