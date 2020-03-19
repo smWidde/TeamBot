@@ -88,6 +88,7 @@
     <Compile Include="ModelView\QuestionCollection.cs" />
     <Compile Include="ModelView\TeleBot.cs" />
     <Compile Include="ModelView\UserCollection.cs" />
+    <Compile Include="Model\Method.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="UsersWindow.xaml.cs">
