@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamProject_"
         mc:Ignorable="d"
-        Title="UsersWindow" Height="450" Width="480.328">
+        Title="UsersWindow" Height="370.082" Width="241.803">
     <Grid>
-        <ListBox Name="lsbox" HorizontalAlignment="Left" Height="337" Margin="27,10,0,0" VerticalAlignment="Top" Width="423">
+        <ListBox Name="lsbox" HorizontalAlignment="Left" Height="262" Margin="27,10,0,0" VerticalAlignment="Top" Width="186">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="IsSelected" Value="{Binding IsSelected}" />
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-        <Button Content="Перейти к пользователю" HorizontalAlignment="Left" Margin="163,369,0,0" VerticalAlignment="Top" Width="157" Height="40" Click="Button_Click"/>
+        <Button Content="Перейти к пользователю" HorizontalAlignment="Left" Margin="27,288,0,0" VerticalAlignment="Top" Width="186" Height="40" Click="Button_Click"/>
 
     </Grid>
 </Window>

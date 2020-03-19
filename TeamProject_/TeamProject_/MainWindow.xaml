@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamProject_"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="520.082" Width="800">
     <Grid>
-        <Button Content="Перейти к пользователям" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="337" Height="195" Click="Button_Click"/>
-        <Button Content="Отправить всем" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="347,227,0,0" VerticalAlignment="Top" Width="430" Height="52" Click="SendAll"/>
-        <TextBox Name ="msg" Margin="347,84,15,192"/>
+        <Button x:Name="btnsend_Next" Content="Перейти к пользователям" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="71,10,0,0" VerticalAlignment="Top" Width="677" Height="84" Click="Button_Click"/>
+        <Button x:Name="Info" Content="Информация для использования" FontSize = "30" FontFamily = "Times New Roman" HorizontalAlignment="Left" Margin="83,427,0,0" VerticalAlignment="Top" Width="643" Height="52" Click="SendAll"/>
+        <TextBox Name ="msg" Margin="71,99,44,278"/>
+        <Button x:Name="btnsend_Mass" Content="Massage" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="83,220,0,0" VerticalAlignment="Top" Width="168" Height="74" Click="btnsend_Click"/>
+        <Button x:Name="btnsend_TXT" Content="TXT" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="309,220,0,0" VerticalAlignment="Top" Width="176" Height="74" Click="btnsend_ClickTXT"/>
+        <Button x:Name="btnsend_PHOTO" Content="Photo" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="548,220,0,0" VerticalAlignment="Top" Width="178" Height="74" Click="btnsend_ClickPhoto"/>
+        <Button x:Name="btnsend_Video" Content="Video" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="309,337,0,0" VerticalAlignment="Top" Width="176" Height="74" Click="btnsend_ClickVideo" RenderTransformOrigin="-1.491,2.067"/>
+        <Button x:Name="btnsend_Music" Content="Music" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="548,337,0,0" VerticalAlignment="Top" Width="178" Height="74" Click="btnsend_ClickMusic"/>
+        <Button x:Name="btnsend_Doc" Content="Doc+pdf" HorizontalAlignment="Left" FontSize = "30" FontFamily = "Times New Roman" Margin="83,337,0,0" VerticalAlignment="Top" Width="168" Height="74" Click="btnsend_ClickDoc"/>
     </Grid>
 </Window>
