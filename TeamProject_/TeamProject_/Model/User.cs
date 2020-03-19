@@ -6,7 +6,7 @@ namespace TeamProject_.Model
     {
         static readonly string path = "TeamTestBotDB.sqlite";
         public int ID { private get; set; }
-        public int user_id { private get; set; }
+        public long user_id { private get; set; }
         public static List<User> ReadAllUsers()
         {
             List<User> result = new List<User>();
@@ -30,7 +30,7 @@ namespace TeamProject_.Model
                 return result;
             }
         }
-        public static User ReadByUserId(int User_ID_TG)
+        public static User ReadByUserId(long User_ID_TG)
         {
             User user1 = null;
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
@@ -77,7 +77,7 @@ namespace TeamProject_.Model
             }
             return user1;
         }
-        public static User AddUser(int User_ID_TG)
+        public static User AddUser(long User_ID_TG)
         {
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {

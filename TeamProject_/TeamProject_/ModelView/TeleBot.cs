@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamProject_.Model;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 
@@ -20,6 +21,10 @@ namespace TeamProject_.ModelView
 
         private void Receive(object sender, MessageEventArgs e)
         {
+            if(User.ReadByUserId(e.Message.Chat.Id)==null)
+            {
+                User.AddUser(e.Message.Chat.Id);
+            }
             if (e.Message.Type != Telegram.Bot.Types.Enums.MessageType.Text)
             {
 
