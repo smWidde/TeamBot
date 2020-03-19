@@ -77,7 +77,7 @@ namespace TeamProject_.Model
             }
             return user1;
         }
-        public static void AddUser(int User_ID_TG)
+        public static User AddUser(int User_ID_TG)
         {
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {
@@ -88,6 +88,7 @@ namespace TeamProject_.Model
                     com.ExecuteNonQuery();
                 }
             }
+            return User.ReadByUserId(User_ID_TG);
         }
     }
 }
