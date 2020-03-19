@@ -113,10 +113,12 @@ namespace TeamProject_.Model
             return result;
         }
 
-        public static void AddMessage(int user_id, string message,bool isbot)
+        public static Message AddMessage(int user_id, string message,bool isbot)
         {
+            Message res = new Message();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                
                 connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO MESSAGE(USER_ID,MSG,IS_BOT) VALUES(@uid,@msg,@isb)", connection))
                 {
@@ -124,8 +126,11 @@ namespace TeamProject_.Model
                     cmd.Parameters.Add(new SQLiteParameter("@msg", message));
                     cmd.Parameters.Add(new SQLiteParameter("@isb", isbot));
                     cmd.ExecuteNonQuery();
+
+                    res = Message.GetMessages().OrderByDescending(msg => msg.ID).FirstOrDefault();
                 }
             }
+            return res;
         }
     }
 }

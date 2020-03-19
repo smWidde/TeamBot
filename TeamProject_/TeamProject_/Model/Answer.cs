@@ -66,8 +66,9 @@ namespace TeamProject_.Model
             return result;
         }
 
-        public static void AddAnswer(int ID_Question,string answer)
+        public static Answer AddAnswer(int ID_Question,string answer)
         {
+            Answer res = new Answer();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
                 connection.Open();
@@ -76,8 +77,11 @@ namespace TeamProject_.Model
                     cmd.Parameters.Add(new SQLiteParameter("@qid", ID_Question));
                     cmd.Parameters.Add(new SQLiteParameter("@ans", answer));
                     cmd.ExecuteNonQuery();
+
+                    res = Answer.GetAnswers().OrderByDescending(ans => ans.ID).FirstOrDefault();
                 }
             }
+            return res;
         }
      }
 
