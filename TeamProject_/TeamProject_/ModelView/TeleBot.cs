@@ -16,7 +16,7 @@ namespace TeamProject_.ModelView
         public TeleBot()
         {
             client = new TelegramBotClient("1149248725:AAG8ECl7OECLm7TOz6ob2yU1CFVks3LkroA");
-            client.OnMessage += Receive;
+            client.OnMessage += StoreMessage;
             client.OnMessage += Answer;
         }
 
@@ -138,24 +138,5 @@ namespace TeamProject_.ModelView
             }
         }
 
-        private void Receive(object sender, MessageEventArgs e)
-        {
-            if(User.ReadByUserId(e.Message.Chat.Id)==null)
-            {
-                User.AddUser(e.Message.Chat.Id);
-            }
-            if (e.Message.Type != Telegram.Bot.Types.Enums.MessageType.Text)
-            {
-
-            }
-            else if (e.Message.ReplyToMessage != null)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
     }
 }
