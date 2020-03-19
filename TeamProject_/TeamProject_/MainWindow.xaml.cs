@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telegram.Bot;
+using Telegram.Bot.Args;
 
 namespace TeamProject_
 {
@@ -30,8 +31,11 @@ namespace TeamProject_
             if (!CheckExistDataBase(path))
                 CreateDataBase(path);
             client = new TelegramBotClient("1149248725:AAG8ECl7OECLm7TOz6ob2yU1CFVks3LkroA");
+            
             InitializeComponent();
         }
+
+       
         private static bool CheckExistDataBase(string path) => File.Exists(path);
         private static void CreateDataBase(string path)
         {
