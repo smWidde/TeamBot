@@ -45,7 +45,7 @@ namespace TeamProject_
 
                 using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS QUESTION" +
                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                   "[QUESTION] VARCHAR(21) NOT NULL," , connection))
+                   "[QUESTION] VARCHAR(21) NOT NULL)" , connection))
                 {
                     try
                     {
@@ -85,7 +85,7 @@ namespace TeamProject_
                 }
 
                 using (SQLiteCommand command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS [MESSAGE]" +
-                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT, USER_ID integer,MSG varchar(50), IS_BOT bit)" +
+                    "([ID] INTEGER PRIMARY KEY AUTOINCREMENT, USER_ID integer,MSG varchar(50), IS_BOT bit," +
                     "FOREIGN KEY([USER_ID]) REFERENCES [USER](ID));", connection))
                 {
                     try
