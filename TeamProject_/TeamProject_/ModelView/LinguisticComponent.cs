@@ -9,7 +9,7 @@ namespace TeamProject_.ModelView
 {
     struct LinguisticComponent
     {
-        Question question;
-        List<Answer> answers;
+       public Question question;
+        public List<Answer> answers;
     }
 }

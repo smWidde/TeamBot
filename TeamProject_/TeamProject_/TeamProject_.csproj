@@ -83,6 +83,7 @@
     </ApplicationDefinition>
     <Compile Include="ModelView\AnswerCollection.cs" />
     <Compile Include="ModelView\LinguisticComponent.cs" />
+    <Compile Include="ModelView\MessageCollection.cs" />
     <Compile Include="ModelView\QuestionCollection.cs" />
     <Compile Include="ModelView\TeleBot.cs" />
     <Compile Include="ModelView\UserCollection.cs" />
