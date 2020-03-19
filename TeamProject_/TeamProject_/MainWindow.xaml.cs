@@ -99,5 +99,12 @@ namespace TeamProject_
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UsersWindow taskWindow = new UsersWindow();
+            taskWindow.Show();
+            this.Close();
+        }
     }
 }
