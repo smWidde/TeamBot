@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\QuestionCollection.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\User.cs" />
     <Page Include="MainWindow.xaml">

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SQLite;
-namespace TeamProject_
+namespace TeamProject_.Model
 {
     class User
     {
@@ -12,6 +12,7 @@ namespace TeamProject_
             List<User> result = new List<User>();
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {
+                con.Open();
                 using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM User", con))
                 {
                     using (SQLiteDataReader reader = com.ExecuteReader())
@@ -57,6 +58,7 @@ namespace TeamProject_
             User user1 = null;
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {
+                con.Open();
                 using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM User WHERE ID=@id", con))
                 {
                     com.Parameters.Add(new SQLiteParameter("@id", ID));
@@ -77,12 +79,13 @@ namespace TeamProject_
         }
         public static void AddUser(int User_ID_TG)
         {
-            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
+            using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {
-                using (SQLiteCommand command = new SQLiteCommand("INSERT INTO USER(USER_ID_TG) VALUES(@user_id)", connection))
+                con.Open();
+                using (SQLiteCommand com = new SQLiteCommand("INSERT INTO USER(USER_ID_TG) VALUES(@user_id)", con))
                 {
-                    command.Parameters.Add(new SQLiteParameter("@user_id", User_ID_TG));
-                    command.ExecuteNonQuery();
+                    com.Parameters.Add(new SQLiteParameter("@user_id", User_ID_TG));
+                    com.ExecuteNonQuery();
                 }
             }
         }

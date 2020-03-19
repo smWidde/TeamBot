@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Telegram.Bot;
 
-namespace TeamProject_
+namespace TeamProject_.Model
 {
     class Question
     {
@@ -87,15 +87,17 @@ namespace TeamProject_
             }
 
         }
-        public static void Add_Question(string question)
+        public static Question Add_Question(string question)
         {
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand command = new SQLiteCommand("INSERT INTO QUESTION(QUESTION) VALUES(@que)", connection))
                 {
                     command.Parameters.Add(new SQLiteParameter("@que", question));
                     command.ExecuteNonQuery();
                 }
+                return Read_Question(question);
             }
         }
     }
