@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ModelView\AnswerCollection.cs" />
+    <Compile Include="ModelView\LinguisticComponent.cs" />
     <Compile Include="ModelView\QuestionCollection.cs" />
     <Compile Include="ModelView\TeleBot.cs" />
     <Compile Include="Model\Question.cs" />
