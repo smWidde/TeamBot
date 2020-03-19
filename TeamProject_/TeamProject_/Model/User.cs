@@ -5,8 +5,8 @@ namespace TeamProject_.Model
     class User
     {
         static readonly string path = "TeamTestBotDB.sqlite";
-        public int ID { private get; set; }
-        public long user_id { private get; set; }
+        public int ID {  get; set; }
+        public long user_id {  get; set; }
         public static List<User> ReadAllUsers()
         {
             List<User> result = new List<User>();
