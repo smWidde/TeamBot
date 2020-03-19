@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamProject_
+namespace TeamProject_.Model
 {
     class Message
     {
@@ -21,6 +21,7 @@ namespace TeamProject_
             List<Message> result = new List<Message>();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM MESSAGE", connection))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -42,6 +43,7 @@ namespace TeamProject_
             List<Message> result = new List<Message>();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM MESSAGE WHERE ID = @id", connection))
                 {
                     cmd.Parameters.Add(new SQLiteParameter("@id", ID));
@@ -65,6 +67,7 @@ namespace TeamProject_
             List<Message> result = new List<Message>();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM MESSAGE WHERE USER_ID = @id", connection))
                 {
                     cmd.Parameters.Add(new SQLiteParameter("@id", ID));
@@ -88,6 +91,7 @@ namespace TeamProject_
             List<Message> result = new List<Message>();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM MESSAGE WHERE MSG = @msg", connection))
                 {
                   
@@ -113,6 +117,7 @@ namespace TeamProject_
         {
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO MESSAGE(USER_ID,MSG,IS_BOT) VALUES(@uid,@msg,@isb)", connection))
                 {
                     cmd.Parameters.Add(new SQLiteParameter("@uid", user_id));

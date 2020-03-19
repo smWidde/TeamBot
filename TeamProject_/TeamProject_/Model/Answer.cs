@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamProject_
+namespace TeamProject_.Model
 {
      class Answer
-    {
+     {
         static readonly string path = "TeamTestBotDB.sqlite";
         
         
@@ -23,7 +23,8 @@ namespace TeamProject_
             List<Answer> result = new List<Answer>();
             using(SQLiteConnection connection = new  SQLiteConnection($"Data Source={path}"))
             {
-                using(SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM ANSWER",connection))
+                connection.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM ANSWER",connection))
                 {
                     using(SQLiteDataReader reader = cmd.ExecuteReader())
                     {
@@ -45,6 +46,7 @@ namespace TeamProject_
             List<Answer> result = new List<Answer>();
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM ANSWER WHERE ID = @id", connection))
                 {
                     cmd.Parameters.Add(new SQLiteParameter("@id", ID_Question));
@@ -68,6 +70,7 @@ namespace TeamProject_
         {
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={path}"))
             {
+                connection.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO ANSWER(QUESTION_ID,ANSWER) VALUES(@qid,@ans)", connection))
                 {
                     cmd.Parameters.Add(new SQLiteParameter("@qid", ID_Question));
@@ -76,6 +79,6 @@ namespace TeamProject_
                 }
             }
         }
-    }
+     }
 
 }
