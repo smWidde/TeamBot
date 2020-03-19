@@ -44,15 +44,17 @@ namespace TeamProject_.Model
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source = {path}"))
             {
                 connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand("select*from table QUESTION where ID=@id;", connection))
+                using (SQLiteCommand command = new SQLiteCommand("select*from QUESTION where ID=@id;", connection))
                 {
                     try
                     {
                         command.Parameters.Add(new SQLiteParameter("@id", ID));
                         SQLiteDataReader reader = command.ExecuteReader();
-                        reader.Read();
-                        question.ID = reader.GetInt32(0);
-                        question.QUESTION = reader.GetString(1);
+                        if (reader.HasRows)
+                            while (reader.Read())
+                            {
+                                question = new Question() { ID = reader.GetInt32(0), QUESTION = reader.GetString(1) };
+                            }
                     }
                     catch (Exception ex)
                     {
@@ -68,15 +70,17 @@ namespace TeamProject_.Model
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source = {path}"))
             {
                 connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand("select*from table QUESTION where QUESTION=@question;", connection))
+                using (SQLiteCommand command = new SQLiteCommand("select*from QUESTION where QUESTION=@question;", connection))
                 {
                     try
                     {
                         command.Parameters.Add(new SQLiteParameter("@question", question));
                         SQLiteDataReader reader = command.ExecuteReader();
-                        reader.Read();
-                        quest.ID = reader.GetInt32(0);
-                        quest.QUESTION = reader.GetString(1);
+                        if (reader.HasRows)
+                            while (reader.Read())
+                            {
+                                quest = new Question() { ID = reader.GetInt32(0), QUESTION = reader.GetString(1) };
+                            }
                     }
                     catch (Exception ex)
                     {

@@ -17,7 +17,7 @@ namespace TeamProject_.ModelView
                 Add(item);
             }
         }
-        public void AddNewQuestion(string question, string answer)
+        public void AddNewAnswer(string question, string answer)
         {
             int question_id = Question.Read_Question(question).ID;
             Answer newOne = Answer.AddAnswer(question_id, answer);

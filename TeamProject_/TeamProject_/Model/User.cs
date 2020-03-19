@@ -35,6 +35,7 @@ namespace TeamProject_.Model
             User user1 = null;
             using (SQLiteConnection con = new SQLiteConnection($"Data Source={path}"))
             {
+                con.Open();
                 using (SQLiteCommand com = new SQLiteCommand("SELECT * FROM User WHERE USER_ID_TG=@user_id", con))
                 {
                     com.Parameters.Add(new SQLiteParameter("@user_id", User_ID_TG));

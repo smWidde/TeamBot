@@ -17,11 +17,14 @@ namespace TeamProject_.ModelView
                 Add(item);
             }
         }
-        public void AddNewQuestion(long User_ID_TG)
+        public void AddNewUser(long User_ID_TG)
         {
             User newOne = User.AddUser(User_ID_TG);
             Add(newOne);
-            CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, newOne));
+            if(CollectionChanged!=null)
+            {
+                CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, newOne));
+            }
         }
     }
 }

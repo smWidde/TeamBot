@@ -18,7 +18,7 @@ namespace TeamProject_.ModelView
                 Add(item);
             }
         }
-        public void AddNewQuestion(int user_id, string message, bool isbot)
+        public void AddNewMessage(int user_id, string message, bool isbot)
         {
             Message newOne = Message.AddMessage(user_id,message,isbot);
             Add(newOne);

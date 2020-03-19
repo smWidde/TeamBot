@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProject_.ModelView;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 
@@ -24,14 +25,13 @@ namespace TeamProject_
     /// </summary>
     public partial class MainWindow : Window
     {
-        static TelegramBotClient client;
+        static TeleBot client;
         static string path = "TeamTestBotDB.sqlite";
         public MainWindow()
         {
             if (!CheckExistDataBase(path))
                 CreateDataBase(path);
-            client = new TelegramBotClient("1149248725:AAG8ECl7OECLm7TOz6ob2yU1CFVks3LkroA");
-            
+            client = new TeleBot("848578183:AAEyE9rbGZtyq4eunSdruS91Jj-gHn2F9Oc");
             InitializeComponent();
         }
 
